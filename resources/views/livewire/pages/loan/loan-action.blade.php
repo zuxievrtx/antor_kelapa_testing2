@@ -1,0 +1,21 @@
+<div class="flex justify-end space-x-1"> 
+    
+    @can('view_loan')
+    <x-button-circle color="purple-500" wireclick="$dispatchTo('pages.loan.loan-page', 'detail', { id: {{$value}} })">
+        <x-fas-list class="h-3 w-3 text-white" />
+    </x-button-circle>
+    @endcan
+
+    @can('edit_loan')
+    <x-button-circle wireclick="$dispatchTo('pages.loan.loan-page', 'edit', { id: {{$value}} })">
+        <x-fas-edit class="h-3 w-3 text-white" />
+    </x-button-circle>
+    @endcan
+
+    @can('delete_loan')
+    <x-button-circle color="red-500"  onclick="isConfirmOpen=true" 
+        wireclick="$dispatchTo('pages.loan.loan-page', 'confirm', { id: {{$value}} })">
+        <x-fas-trash class="h-3 w-3 text-white" />
+    </x-button-circle>
+    @endcan
+</div>
