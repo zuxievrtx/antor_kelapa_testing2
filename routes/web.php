@@ -27,6 +27,15 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('/admin')->group(function
     Route::get('/departemen', DepartmentPage::class)->name('department');
     Route::get('/dudi', CompanyPage::class)->name('company');
     Route::get('/instruktur', InstructorPage::class)->name('instructor');
+    
+    // Student Management Routes
+    Route::resource('majors', \App\Http\Controllers\MajorController::class);
+    Route::resource('class-rooms', \App\Http\Controllers\ClassRoomController::class);
+    Route::resource('students', \App\Http\Controllers\StudentController::class);
+    
+    // Student Import/Export Routes
+    Route::post('students/import', [\App\Http\Controllers\StudentController::class, 'import'])->name('students.import');
+    Route::get('students/export', [\App\Http\Controllers\StudentController::class, 'export'])->name('students.export');
 });
 
 
