@@ -12,6 +12,9 @@ use App\Livewire\Pages\User\UserPage;
 use App\Livewire\Pages\Worker\WorkerPage;
 use App\Livewire\Pages\Department\DepartmentPage;
 use App\Livewire\Pages\Instructor\InstructorPage;
+use App\Livewire\Pages\Major\MajorPage;
+use App\Livewire\Pages\ClassRoom\ClassRoomPage;
+use App\Livewire\Pages\Student\StudentPage;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', DashboardPage::class)->name('home');
@@ -27,6 +30,9 @@ Route::middleware(['auth', 'role:superadmin'])->prefix('/admin')->group(function
     Route::get('/departemen', DepartmentPage::class)->name('department');
     Route::get('/dudi', CompanyPage::class)->name('company');
     Route::get('/instruktur', InstructorPage::class)->name('instructor');
+    Route::get('/jurusan', MajorPage::class)->name('major');
+    Route::get('/kelas', ClassRoomPage::class)->name('classroom');
+    Route::get('/siswa', StudentPage::class)->name('student');
 });
 
 
